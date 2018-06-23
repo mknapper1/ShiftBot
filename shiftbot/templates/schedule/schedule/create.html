@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block main %}
+    <div class="container-fluid px-5">
+        <div class="row">
+            <div class="col">
+                <h2>Create Week 8 Schedule</h2>
+                <h5>Feb 4 2018 - Feb 10 2018</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-5">
+        <div class="col-md-6">
+            <div class="card">
+                <h4>The Workers</h4>
+                <a href="#">ADD NEW WORKER</a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <div class="card">
+                <h4>The Shifts</h4>
+                <a href="#">ADD NEW SHIFT</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock main %}
+

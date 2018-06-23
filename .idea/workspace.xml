@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="6967cfe2-5499-4a4b-8aad-3dd80ad60bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schedule/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/models.py" afterDir="false" />
-=======
-    <list default="true" id="57e00afd-0b79-42a5-8dd8-bceb58587473" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/employee/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/employee/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/job/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/job/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/edit.html" afterDir="false" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
+    <list default="true" id="dc31a8b2-24bc-46d6-a564-3bb0b0e4c41b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/shiftbot/static/vendor/sortable/js/Sortable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ShiftBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ShiftBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shiftbot/static/sass/project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/static/sass/project.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shiftbot/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,52 +19,25 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/schedule/models.py">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-=======
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/employee/create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="144">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/employee/edit.html">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shiftbot/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/job/create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/job/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="504">
+              <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -76,60 +45,59 @@
       <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="304">
+              <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/edit.html">
+      <file leaf-file-name="project.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shiftbot/static/sass/project.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="487">
+              <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/base.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
+            <state relative-caret-position="128">
+              <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shiftbot/templates/pages/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="14" selection-start-column="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-<<<<<<< HEAD
-=======
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-      </list>
-    </option>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>about</find>
+    </findStrings>
   </component>
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/schedule/models.py" />
-=======
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/employee/create.html" />
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/employee/edit.html" />
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/job/create.html" />
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/job/edit.html" />
+        <option value="$PROJECT_DIR$/config/urls.py" />
+        <option value="$PROJECT_DIR$/shiftbot/static/sass/project.scss" />
         <option value="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" />
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/edit.html" />
-        <option value="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/base.html" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
+        <option value="$PROJECT_DIR$/shiftbot/templates/base.html" />
       </list>
     </option>
   </component>
@@ -139,24 +107,20 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-<<<<<<< HEAD
-    <option name="y" value="27" />
-    <option name="width" value="1717" />
-    <option name="height" value="944" />
+    <option name="y" value="22" />
+    <option name="width" value="1680" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager">
-=======
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -164,10 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="Scope" />
-=======
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,76 +139,63 @@
             <path>
               <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
-=======
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
               <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
               <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
+              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
+              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
+              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="sortable" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
               <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
-              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
-              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
-              <item name="job" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShiftBot" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShiftBot" type="462c0819:PsiDirectoryNode" />
-              <item name="shiftbot" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
-              <item name="schedule" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-=======
-      <pane id="Scope" />
-    </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/shiftbot/templates/schedule/schedule" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/shiftbot/static/vendor/sortable/js" />
     </key>
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -266,28 +214,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="6967cfe2-5499-4a4b-8aad-3dd80ad60bbc" name="Default" comment="" />
-      <created>1529762325734</created>
+      <changelist id="dc31a8b2-24bc-46d6-a564-3bb0b0e4c41b" name="Default" comment="" />
+      <created>1529765717950</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1529762325734</updated>
-=======
-      <changelist id="57e00afd-0b79-42a5-8dd8-bceb58587473" name="Default" comment="" />
-      <created>1529763097651</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1529763097651</updated>
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
+      <updated>1529765717950</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-<<<<<<< HEAD
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-=======
     <frame x="0" y="22" width="1680" height="1028" extended-state="6" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -296,13 +232,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-<<<<<<< HEAD
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32949308" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973261" />
-=======
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32929516" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="SciView" />
@@ -310,21 +241,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
-<<<<<<< HEAD
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-=======
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,59 +256,55 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/schedule/models.py">
+    <entry file="file://$PROJECT_DIR$/shiftbot/templates/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-=======
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/employee/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/employee/edit.html">
+    <entry file="file://$PROJECT_DIR$/config/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/job/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/job/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="128">
+          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
->>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shiftbot/static/sass/project.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shiftbot/static/vendor/sortable/js/Sortable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shiftbot/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
         </state>
       </provider>
     </entry>
