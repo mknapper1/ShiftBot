@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc31a8b2-24bc-46d6-a564-3bb0b0e4c41b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/shiftbot/static/vendor/sortable/js/Sortable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ShiftBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ShiftBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schedule/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schedule/migrations/0002_employee_workplace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schedule/migrations/0003_auto_20180623_1526.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schedule/migrations/0004_shift_week.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shiftbot/static/sass/project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/static/sass/project.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shiftbot/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,11 +33,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shiftbot/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
               <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -98,6 +107,7 @@
         <option value="$PROJECT_DIR$/shiftbot/static/sass/project.scss" />
         <option value="$PROJECT_DIR$/shiftbot/templates/schedule/schedule/create.html" />
         <option value="$PROJECT_DIR$/shiftbot/templates/base.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -305,6 +315,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="33" column="19" lean-forward="true" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="109" column="14" selection-start-line="109" selection-start-column="14" selection-end-line="109" selection-end-column="14" />
         </state>
       </provider>
     </entry>
