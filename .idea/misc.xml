@@ -3,5 +3,9 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (shiftbot)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 2.7.10 (/usr/bin/python)" project-jdk-type="Python SDK" />
+>>>>>>> 87ffedd4aca64fa3eb617e3cc73f64325599bc7f
 </project>
