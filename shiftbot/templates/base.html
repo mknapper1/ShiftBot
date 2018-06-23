@@ -18,8 +18,9 @@
     {% block base_css %}
 
         <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
-        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
+{#        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">#}
+        <link href="{% static 'vendor/paperkit/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/paperkit/css/paper-kit.css' %}" rel="stylesheet">
 
 
         <!-- Your stuff: Third-party CSS libraries go here -->
@@ -74,7 +75,67 @@
             </ul>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-md bg-danger">
+                                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-menu-icon" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon"></span>
+								</button>
+                                <a class="navbar-brand" href="#">Icons</a>
+                                <div class="collapse navbar-collapse" id="navbar-menu-icon">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#pk"><i class="nc-icon nc-email-85" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#pk"><i class="nc-icon nc-single-02" aria-hidden="true"></i></a>
+                                        </li>
+                                        <div class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-right dropdown-danger">
+                                                <li class="dropdown-header" href="#pk">Dropdown header</li>
+                                                <a class="dropdown-item" href="#pk">Another action</a>
+                                                <a class="dropdown-item" href="#pk">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#pk">Separated link</a>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </nav>
 
+
+<nav class="navbar navbar-expand-md bg-primary">
+                                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon"></span>
+                                    <span class="navbar-toggler-icon"></span>
+								</button>
+                                <a class="navbar-brand" href="#">Menu</a>
+                                <div class="collapse navbar-collapse" id="navbar-menu">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#pk">Link</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#pk">Link</a>
+                                        </li>
+                                        <div class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" href="#pk" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                            <ul class="dropdown-menu dropdown-info" aria-labelledby="dropdownMenuButton">
+                                                <li class="dropdown-header">Dropdown header</li>
+                                                <a class="dropdown-item" href="#pk">Action</a>
+                                                <a class="dropdown-item" href="#pk">Another action</a>
+                                                <a class="dropdown-item" href="#pk">Something else here</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#pk">Separated link</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#pk">Another separated link</a>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </nav>
 </div>
 
 <div class="main">
