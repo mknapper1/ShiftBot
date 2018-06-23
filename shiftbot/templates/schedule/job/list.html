@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="p-2">
+
+    <div class="row mt-2">
+        <div class="col ml-4">
+            <h2>Job List</h2>
+            <small>{{ jobs.count }} Jobs</small>
+        </div>
+    </div>
+
+    <ul>
+        {% for job in jobs %}
+            <li>
+                <a href="#">{{ job }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'schedule:jobs_new_view' %}">Add An New Job</a>
+
+
+    </div>
+
+{% endblock main %}
+

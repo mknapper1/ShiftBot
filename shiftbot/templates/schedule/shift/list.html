@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="p-2">
+
+    <div class="row mt-2">
+        <div class="col ml-4">
+            <h2>Shift List</h2>
+            <small>{{ shifts.count }} Shifts</small>
+        </div>
+    </div>
+
+    <ul>
+        {% for shift in shifts %}
+            <li>
+                <a href="#">{{ shift }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'schedule:shifts_new_view' %}">Add An New Shift</a>
+
+
+    </div>
+
+{% endblock main %}
+

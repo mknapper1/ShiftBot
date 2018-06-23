@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="row mt-2">
+        <div class="col ml-4">
+            <h2>Welcome To {{ request.user.workplace.name }}'s Dashboard</h2>
+        </div>
+    </div>
+
+    <ul>
+        <li>
+            <a href="#">Button to get to your current schedule</a>
+        </li>
+        <li>
+            <a href="#">Button to list some employees</a>
+        </li>
+        <li>
+            <a href="#">Button to list some jobs</a>
+        </li>
+        <li>
+            <a href="#">Button to create a schedule</a>
+        </li>
+    </ul>
+
+
+{% endblock main %}
+

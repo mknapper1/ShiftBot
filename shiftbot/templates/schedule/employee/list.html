@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="p-2">
+
+    <div class="row mt-2">
+        <div class="col ml-4">
+            <h2>Employee List</h2>
+            <small>{{ employees.count }} Employees</small>
+        </div>
+    </div>
+
+    <ul>
+        {% for employee in employees %}
+            <li>
+                <a href="#">{{ employee }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'schedule:employees_new_view' %}">Add An Employee</a>
+
+
+    </div>
+
+{% endblock main %}
+
