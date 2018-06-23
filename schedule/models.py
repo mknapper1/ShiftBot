@@ -38,12 +38,12 @@ class WorkWeek(models.Model):
     workplace = models.ForeignKey(Workplace, blank=True, null=True, on_delete=models.SET_NULL)
 
 
-
 class Job(models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
     workplace = models.ForeignKey(Workplace, null=True, blank=True, on_delete=models.SET_NULL)
+    color = models.CharField(max_length=25, blank=True, null=True)
 
     def __str__(self):
         return self.name

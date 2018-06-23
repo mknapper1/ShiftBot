@@ -3,7 +3,11 @@
 
 {% block css %}
     <link href="{% static 'vendor/fullcalendar/css/fullcalendar.min.css' %}" rel="stylesheet">
-
+    <style>
+        .fc-event {
+            cursor: pointer;
+        }
+    </style>
 {% endblock css %}
 
 {% block main %}
@@ -24,6 +28,29 @@
     </div>
 {% endblock main %}
 
+{% block modal %}
+    <div class="modal fade" id="shiftModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shiftModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock modal %}
+
 
 {% block javascript %}
     <script src="{% static 'vendor/momentjs/js/moment.min.js' %}"></script>
@@ -31,6 +58,16 @@
     <script src="{% static 'vendor/fullcalendar/js/fullcalendar.min.js' %}"></script>
 
     <script>
+
+        var current_event_element = null;
+        var current_event_id = null;
+
+
+
+        $('#shiftModal').on('shown.bs.modal', function () {
+            $('#shiftModalLabel').html(current_event_id);
+        });
+
 
         $(function () {
 
@@ -56,37 +93,47 @@
                 navLinks: true,
                 eventClick: function (calEvent, jsEvent, view) {
 
-                    alert('Event: ' + calEvent.title);
-                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                    alert('View: ' + view.name);
+                    current_event_element = $(this);
+                    current_event_id = calEvent.id;
+                    console.log(calEvent);
+
+
+                    {#alert(calEvent.id);#}
+
+                    $('#shiftModal').modal({});
 
                     // change the border color just for fun
-                    $(this).css('border-color', 'red');
+                    {#$(this).css('border-color', 'red');#}
 
                 },
                 events: [
                     {
+                        category: 'matthew',
+                        id: '1134423',
                         title: 'Long Event',
                         start: YM + '-07',
                         end: YM + '-10',
-                        backgroundColor: 'green',
+                        backgroundColor: 'rgba(0, 0, 0, .5)',
+                        borderColor: 'yellow',
                     },
                     {
-                        id: 999,
+                        id: 2234,
                         title: 'Repeating Event',
                         start: YM + '-09T16:00:00'
                     },
                     {
-                        id: 999,
+                        id: 2342,
                         title: 'Repeating Event',
                         start: YM + '-16T16:00:00'
                     },
                     {
+                        id: 242,
                         title: 'Meeting',
                         start: TODAY + 'T10:30:00',
                         end: TODAY + 'T12:30:00'
                     },
                     {
+                        id: 232,
                         title: 'Meeting',
                         start: TODAY + 'T10:30:00',
                         end: TODAY + 'T12:30:00'
@@ -145,8 +192,7 @@
             });
         });
 
-
-    </script>
+</script>
 
 
 {% endblock javascript %}
