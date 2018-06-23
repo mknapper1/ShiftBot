@@ -1,0 +1,28 @@
+DEFAULT = '#66615B'
+PRIMARY = '#51cbce'
+SUCCESS = '#6bd098'
+INFO =  '#51bcda'
+WARNING = '#fbc658'
+DANGER = '#f5593d'
+
+
+ORANGE = '#F6511D'
+GOLD = '#FFB400'
+CERULEAN = '#00A6ED'
+GREEN = '#7FB800'
+BLUE = '#0D2C54'
+
+COLOR_CHOICES = (
+    (DEFAULT, '#66615B'),
+    (PRIMARY, '#51cbce'),
+    (SUCCESS, '#6bd098'),
+    (INFO, '#51bcda'),
+    (WARNING, '#fbc658'),
+    (DANGER, '#f5593d)',
+    (ORANGE, '#F6511D'),
+    (GOLD, '#FFB400'),
+    (CERULEAN, '#00A6ED'),
+    (GREEN, '#7FB800'),
+    (BLUE, '#0D2C54'),
+    )
+    color = models.CharField(max_length=10, choices=COLOR_CHOICES, default=DEFAULT)
