@@ -141,7 +141,7 @@ def send_emp_change_request(employee, shift_id):
 
 def send_pickup_shift_request(slacker, employee, shift):
     body = f'{slacker} is looking for someone to work: \n' \
-           '{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n' \
+           f'{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n' \
            'text (y) to accept' \
            'text (n) to decline'
     client = get_client()
