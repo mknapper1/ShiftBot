@@ -20,7 +20,7 @@
             <span class="float-right mt-2">
                 <button id="save_btn" data-toggle="modal" data-target="#AddShiftEventModal"
                         class="btn btn-sm btn-primary">ADD SHIFT</button>
-                <button id="save_btn" class="btn btn-sm btn-primary">SAVE SCHEDULE</button>
+                <button id="save_btn" class="btn btn-sm btn-primary">FINALIZE SCHEDULE</button>
             </span>
         </div>
     </div>
@@ -199,7 +199,8 @@
                 defaultView: 'agendaWeek',
                 editable: false,
                 eventLimit: true, // allow "more" link when too many events
-                navLinks: true,
+                navLinks: false,
+                dayClick: null,
                 eventClick: function (calEvent, jsEvent, view) {
 
                     current_event_element = $(this);
@@ -245,18 +246,27 @@
 
                 {#alert(work_week + ' | ' + work_day + ' | ' + start_time + ' | ' + end_time + ' | ' + job);#}
 
-                  var formData = {
-                       'work_week': work_week,
-                        'work_day': work_day,
-                        'start_time': start_time,
-                        'end_time': end_time,
-                        'job': job,
-                        'csrf_token': '{{ csrf_token }}'
-                  };
+                var formData = {
+                    'work_week': work_week,
+                    'work_day': work_day,
+                    'start_time': start_time,
+                    'end_time': end_time,
+                    'job': job,
+                    'csrf_token': '{{ csrf_token }}'
+                };
 
-                  $.post('{% url "schedule:ajax_create_shift" %}', formData).done(function (data) {
-                        alert(data);
+                $.post('{% url "schedule:ajax_create_shift" %}', formData).done(function (data) {
+                    fc.fullCalendar('renderEvent', {
+                        job: data.job_slug,
+                        id: data.shift_id,
+                        title: data.job,
+                        start: data.start_time,
+                        end: data.end_time,
+                        backgroundColor: data.background_color,
+                        assigned: '',
+
                     });
+                });
 
 
                 {#$.ajax({#}
