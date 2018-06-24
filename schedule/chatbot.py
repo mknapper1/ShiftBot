@@ -44,6 +44,7 @@ def go_chatbot(message, phone_number):
     print(phone_number)
     employee = Employee.objects.get(phone_number=phone_number)
     print(employee)
+    print(employee.last_message)
     if employee.last_message == Employee.SENT_SCHEDULE:
         if message.startswith('y'):
             employee.last_message = Employee.CONFIRMED_SCHEDULE
