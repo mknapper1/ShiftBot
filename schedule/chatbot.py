@@ -66,7 +66,7 @@ def go_chatbot(message, phone_number):
     elif employee.last_message == Employee.REJECTED_SHIFT or employee.last_message == 4:
         print('here at rejected shift' + message)
         if message.startswith('y'):
-            send_emp_change_request(employee)
+            send_emp_change_request(employee, employee.message_shift)
         elif message.startswith('n'):
             send_reject_schedule(employee)
     elif employee.last_message == Employee.PICKUP_REQUEST:
@@ -129,8 +129,9 @@ def send_confirm_reject_shift(employee, shift):
     employee.save()
 
 
-def send_emp_change_request(employee, shift):
+def send_emp_change_request(employee, shift_id):
     print('sending change request for ' + employee.name)
+    shift = Shift.objects.get(pk=shift_id)
     employees = shift.job.employee_set.all()
     for emp in employees:
         print(emp)
