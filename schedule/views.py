@@ -2,13 +2,14 @@ from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
 from .forms import EmployeeForm, JobForm, ShiftForm, AjaxShiftForm
 from .models import WorkWeek, Shift, Job
+from .chatbot import go_chatbot
 
 
 @login_required
@@ -24,6 +25,8 @@ def schedule_create_view(request, year=None, week=None):
     shifts = work_week.shifts.all() if not created else None
     return render(request, 'schedule/schedule/create.html', {'week': week,
                                                              'year': year,
+                                                             'next_week': week+1 if week < 52 else 1,
+                                                             'next_year': year if week < 52 else year+1,
                                                              'work_week': work_week,
                                                              'start_datetime': work_week.get_start_datetime(),
                                                              'shifts': shifts})
@@ -127,3 +130,12 @@ def shifts_new_view(request):
 @login_required
 def dummy_view(request):
     return render(request, 'schedule/schedule/create.html', {})
+
+
+def txt_me(request):
+    if request.method == 'POST':
+        params = request.POST
+        user_txt = params['Body'] or ''
+        user_phone = params['From'] or ''
+
+    return HttpResponse('')

@@ -46,6 +46,14 @@ class WorkWeek(models.Model):
     def get_next_week(self):
         return 1 if self.week == 52 else self.week + 1
 
+    def finalize_schedule(self):
+        unfilled_shifts = Shift.objects.filter(work_week=self, employee__isnull=True)
+        for shift in unfilled_shifts:
+            shift.employee = Employee.objects.filter(workplace=self.workplace, job=shift.job).order_by('?').first()
+            shift.save()
+        for employee in self.workplace.employee_set.all():
+            print(employee)
+
 
 class Job(models.Model):
     name = models.CharField(max_length=255)
@@ -66,11 +74,21 @@ class Job(models.Model):
 
 
 class Employee(models.Model):
+    NO_PREVIOUS_MESSAGE = 0
+    SENT_SCHEDULE = 1
+    CONFIRMED_SCHEDULE = 2
+    REJECTED_SCHEDULE = 3
+    REJECTED_SHIFT = 4
+    PICKUP_REQUEST = 5
+
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=12)
     job = models.ForeignKey(Job, null=True, blank=True, on_delete=models.SET_NULL)
     workplace = models.ForeignKey(Workplace, null=True, blank=True, on_delete=models.SET_NULL)
+    is_manager = models.BooleanField(default=False)
+    last_message = models.IntegerField(default=NO_PREVIOUS_MESSAGE)
+    message_shift = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

@@ -16,7 +16,11 @@
 
     <div class="row mt-4">
         <div class="col">
-            <span class="h2">Create Week {{ week }} Schedule</span>
+            <span class="h2">Create Week {{ week }} Schedule
+                <a href="{% url 'schedule:schedule_create_view' next_year next_week %}">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </span>
             <span class="float-right mt-2">
                 <button id="save_btn" data-toggle="modal" data-target="#AddShiftEventModal"
                         class="btn btn-sm btn-primary">ADD SHIFT</button>
@@ -119,13 +123,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-center" id="{{ job.slug }}ModalLabel">Select a {{ job }}</h5>
+                        <h5 class="modal-title text-center" id="{{ job.slug }}ModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
-
+                        <B>Select a {{ job }}</B>
                         {% for employee in job.employee_set.all %}
                             <div class="form-check-radio">
                                 <label class="form-check-label">
@@ -167,11 +171,17 @@
 
         var current_event_element = null;
         var current_event_id = null;
+        var current_emp = '';
 
 
         {% for job in request.user.workplace.job_set.all %}
             $('#{{ job.slug }}Modal').on('shown.bs.modal', function () {
-                {#$('#{{ job.slug }}ModalLabel').html(current_event_id);#}
+                if (current_emp === '' || current_emp === 'None'){
+                    $('#{{ job.slug }}ModalLabel').html('No One Currently Assigned');
+
+                } else {
+                    $('#{{ job.slug }}ModalLabel').html('Currently Assigned to: ' + current_emp);
+                }
             });
         {% endfor %}
 
@@ -207,6 +217,7 @@
                     current_event_id = calEvent.id;
                     console.log(calEvent);
 
+                    current_emp = calEvent.assigned;
 
                     $('#' + calEvent.job + 'Modal').modal({});
 
@@ -223,7 +234,7 @@
                             start: '{{ shift.start_datetime.isoformat }}',
                             end: '{{ shift.end_datetime.isoformat }}',
                             backgroundColor: '{{ shift.job.color }}',
-                            assigned: '{{ shift.employee.id }}'
+                            assigned: '{{ shift.employee }}'
                         },
                     {% endfor %}
                 ]

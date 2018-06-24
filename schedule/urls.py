@@ -45,4 +45,8 @@ urlpatterns = [
          views.ajax_create_shift,
          name='ajax_create_shift'),
 
+    path('txt/me/',
+         views.txt_me,
+         name='txt_me'),
+
 ]
