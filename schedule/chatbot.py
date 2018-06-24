@@ -63,7 +63,8 @@ def go_chatbot(message, phone_number):
                 send_confirm_reject_shift(employee, shift)
             else:
                 send_reject_schedule(employee)
-    elif employee.last_message == Employee.REJECTED_SHIFT:
+    elif employee.last_message == Employee.REJECTED_SHIFT or employee.last_message == 4:
+        print('here at rejected shift' + message)
         if message.startswith('y'):
             send_emp_change_request(employee)
         elif message.startswith('n'):
