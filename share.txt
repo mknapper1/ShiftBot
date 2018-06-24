@@ -65,3 +65,9 @@ COLOR_CHOICES = (
             </ul>
         </div>
     </nav>
+
+    {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    }
