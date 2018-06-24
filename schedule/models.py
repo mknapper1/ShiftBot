@@ -58,7 +58,7 @@ class WorkWeek(models.Model):
             shift.employee = Employee.objects.filter(workplace=self.workplace, job=shift.job).order_by('?').first()
             shift.save()
         for employee in self.workplace.employee_set.all():
-            schedule = Shift.objects.get(work_week_id=self.id, employee=employee)
+            schedule = Shift.objects.filter(work_week_id=self.id, employee=employee)
             send_schedule(employee, schedule)
 
 

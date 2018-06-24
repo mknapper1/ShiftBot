@@ -43,7 +43,8 @@ def send_schedule(employee, schedule):
     body += 'Text (y) to confirm\n' \
             'Text (n) to reject'
     client = get_client()
-    client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
+    if employee.phone_number != '1234567890':
+        client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
     employee.message_shift = 0
     employee.last_message = 1
     employee.save()
