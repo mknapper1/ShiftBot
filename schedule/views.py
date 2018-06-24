@@ -140,7 +140,17 @@ def dummy_view(request):
     return render(request, 'schedule/schedule/create.html', {})
 
 
+@csrf_exempt
 def txt_me(request):
+    # params = request.POST
+    #
+    # user_txt = params['Body']
+    # user_phone = params['From']
+    #
+    # print(f'{user_phone} Sent||| {user_txt}')
+    # go_chatbot(message=user_txt, phone_number=user_phone)
+    #
+
     if request.method == 'POST':
         params = request.POST
         user_txt = params['Body'] or ''
@@ -148,4 +158,4 @@ def txt_me(request):
         print(f'{user_phone} Sent||| {user_txt}')
         go_chatbot(message=user_txt, phone_number=user_phone)
 
-    return HttpResponse('')
+    return JsonResponse({'status': 'yep!'})
