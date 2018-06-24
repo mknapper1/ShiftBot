@@ -95,9 +95,12 @@
                             <div class="">
                                 <select name="job" class="select form-control" id="id_add_shift_job">
                                     <option value="" selected="">---------</option>
-                                    <option value="1">programmer</option>
-                                    <option value="2">coder</option>
-                                    <option value="3">Software Engineer</option>
+                                    {% for job in request.user.workplace.job_set.all %}
+                                        <option value="{{ job.id }}">{{ job }}</option>
+                                    {% endfor %}
+                                    {#                                    <option value="1">programmer</option>#}
+                                    {#                                    <option value="2">coder</option>#}
+                                    {#                                    <option value="3">Software Engineer</option>#}
                                 </select>
                             </div>
                         </div>
@@ -176,7 +179,7 @@
 
         {% for job in request.user.workplace.job_set.all %}
             $('#{{ job.slug }}Modal').on('shown.bs.modal', function () {
-                if (current_emp === '' || current_emp === 'None'){
+                if (current_emp === '' || current_emp === 'None') {
                     $('#{{ job.slug }}ModalLabel').html('No One Currently Assigned');
 
                 } else {
