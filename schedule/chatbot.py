@@ -142,7 +142,7 @@ def send_emp_change_request(employee, shift_id):
 def send_pickup_shift_request(slacker, employee, shift):
     body = f'{slacker} is looking for someone to work: \n' \
            f'{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n' \
-           'text (y) to accept' \
+           'text (y) to accept\n' \
            'text (n) to decline'
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
@@ -157,7 +157,7 @@ def send_finalize_swap(employee):
     shift.employee = employee
     shift.save()
     body = f'Thanks you now work \n' \
-           '{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}'
+           f'{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}'
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
     employee.message_shift = 0
