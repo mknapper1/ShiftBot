@@ -14,7 +14,7 @@ class JobForm(forms.ModelForm):
 
     class Meta:
         model = Job
-        fields = ['name', 'description']
+        fields = ['name', 'description', 'color']
 
 
 class ShiftForm(forms.ModelForm):

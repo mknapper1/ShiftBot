@@ -70,16 +70,19 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
+
             {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                    {# URL provided by django-allauth/account/urls.py #}
-                    <a class="nav-link"
-                       href="{% url 'users:detail' request.user.username %}">{% trans "My Profile" %}</a>
-                </li>
-                <li class="nav-item">
-                    {# URL provided by django-allauth/account/urls.py #}
-                    <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-                </li>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#pk" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false"><i class="fa fa-cog"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-danger">
+                        <a class="dropdown-item" href="{% url 'users:detail' request.user.username %}">My Profile</a>
+                        <a class="dropdown-item" href="{% url 'schedule:dashboard' %}">Schedule</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
+                    </ul>
+                </div>
             {% else %}
                 <li class="nav-item">
                     {# URL provided by django-allauth/account/urls.py #}
@@ -91,17 +94,6 @@
                     <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
                 </li>
             {% endif %}
-{#            <div class="nav-item dropdown">#}
-{#                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#pk" role="button" aria-haspopup="true"#}
-{#                   aria-expanded="false"><i class="fa fa-cog"></i></a>#}
-{#                <ul class="dropdown-menu dropdown-menu-right dropdown-danger">#}
-{#                    <li class="dropdown-header" href="#pk">Dropdown header</li>#}
-{#                    <a class="dropdown-item" href="#pk">Another action</a>#}
-{#                    <a class="dropdown-item" href="#pk">Something else here</a>#}
-{#                    <div class="dropdown-divider"></div>#}
-{#                    <a class="dropdown-item" href="#pk">Separated link</a>#}
-{#                </ul>#}
-{#            </div>#}
         </ul>
     </div>
 </nav>
@@ -115,10 +107,10 @@
         {% endfor %}
     {% endif %}
 
-    {% block content %}
-    {% endblock content %}
-
     <div class="container">
+        {% block content %}
+        {% endblock content %}
+
         {% block main %}
         {% endblock main %}
     </div>
