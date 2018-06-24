@@ -18,7 +18,9 @@
     {% block base_css %}
 
         <!-- Latest compiled and minified Bootstrap 4 beta CSS -->
-{#        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">#}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
         <link href="{% static 'vendor/paperkit/css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'vendor/paperkit/css/paper-kit.css' %}" rel="stylesheet">
         <link href="{% static 'vendor/paperkit/css/nucleo-icons.css' %}" rel="stylesheet">
@@ -60,7 +62,7 @@
                                             <a class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
                                         </li>
                                         <div class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i></a>
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#pk" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i></a>
                                             <ul class="dropdown-menu dropdown-menu-right dropdown-danger">
                                                 <li class="dropdown-header" href="#pk">Dropdown header</li>
                                                 <a class="dropdown-item" href="#pk">Another action</a>
