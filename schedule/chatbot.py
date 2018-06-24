@@ -131,6 +131,7 @@ def send_confirm_reject_shift(employee, shift):
 def send_emp_change_request(employee, shift):
     employees = shift.job.employee_set.all()
     for emp in employees:
+        print(emp)
         if emp.id != employee.id:
             send_pickup_shift_request(employee, emp, shift)
 
@@ -148,7 +149,7 @@ def send_pickup_shift_request(slacker, employee, shift):
 
 
 def send_finalize_swap(employee):
-    shift = Shift.objects.get(id=employee.shift_set)
+    shift = Shift.objects.get(id=employee.message_shift)
     slacker = shift.employee
     shift.employee = employee
     shift.save()
@@ -156,19 +157,19 @@ def send_finalize_swap(employee):
            '{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}'
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
-    employee.shift_set = 0
+    employee.message_shift = 0
     employee.last_message = Employee.CONFIRMED_SCHEDULE
     employee.save()
     body = f'{employee} picked up your shift!'
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=slacker.phone_number)
-    slacker.shift_set = 0
+    slacker.message_shift = 0
     slacker.last_message = Employee.CONFIRMED_SCHEDULE
     slacker.save()
 
 
 def send_reject_pickup(employee):
-    shift = Shift.objects.get(id=employee.shift_set)
+    shift = Shift.objects.get(id=employee.message_shift)
     slacker = shift.employee
 
 #
