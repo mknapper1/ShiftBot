@@ -32,6 +32,14 @@ def schedule_create_view(request, year=None, week=None):
                                                              'shifts': shifts})
 
 
+@login_required
+def schedule_finalize(request, year, week):
+    work_week = WorkWeek.objects.get(year=year, week=week, workplace=request.user.workplace)
+    work_week.finalize_schedule()
+    return redirect(work_week.workplace.get_dashboard_url())
+
+
+
 @csrf_exempt
 def ajax_create_shift(request):
     if request.method == 'POST':

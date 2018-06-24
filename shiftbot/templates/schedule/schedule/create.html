@@ -24,7 +24,7 @@
             <span class="float-right mt-2">
                 <button id="save_btn" data-toggle="modal" data-target="#AddShiftEventModal"
                         class="btn btn-sm btn-primary">ADD SHIFT</button>
-                <button id="save_btn" class="btn btn-sm btn-primary">FINALIZE SCHEDULE</button>
+                <a href="{% url 'schedule:schedule_finalize' year week %}" id="save_btn" class="btn btn-sm btn-primary">FINALIZE SCHEDULE</a>
             </span>
         </div>
     </div>
@@ -242,10 +242,6 @@
 
             {#var end_time_pickr = $("#id_end_time").flatpickr()#}
 
-
-            $('#save_btn').on('click', function () {
-                console.log(fc.fullCalendar('clientEvents'));
-            });
 
             $('#AddEventBtn').on('click', function () {
                 var work_week = '{{ work_week.id }}';

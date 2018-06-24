@@ -16,6 +16,10 @@ urlpatterns = [
          views.schedule_create_view,
          name='schedule_create_view'),
 
+    path('finalize/<int:year>/<int:week>/',
+         views.schedule_finalize,
+         name='schedule_finalize'),
+
 
     path('employees/',
          views.employees_view,

@@ -4,11 +4,17 @@ from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
 
+from .chatbot import send_schedule
+
 
 class Workplace(models.Model):
     name = models.CharField(max_length=255)
     slug = models.CharField(max_length=255, unique=True)
     boss_name = models.CharField(max_length=255)
+
+    @staticmethod
+    def get_dashboard_url():
+        return reverse('schedule:dashboard')
 
     @staticmethod
     def get_employee_list_url():
@@ -52,7 +58,7 @@ class WorkWeek(models.Model):
             shift.employee = Employee.objects.filter(workplace=self.workplace, job=shift.job).order_by('?').first()
             shift.save()
         for employee in self.workplace.employee_set.all():
-            print(employee)
+            send_schedule(employee.id, self.id)
 
 
 class Job(models.Model):
