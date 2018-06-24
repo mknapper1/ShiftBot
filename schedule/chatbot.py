@@ -39,9 +39,11 @@ def get_client():
 
 def go_chatbot(message, phone_number):
     message = clean_message(message.lower())
+    print(message)
     phone_number = re.sub('[^0-9]', '', phone_number)
+    print(phone_number)
     employee = Employee.objects.get(phone_number=phone_number)
-
+    print(employee)
     if employee.last_message == Employee.SENT_SCHEDULE:
         if message.startswith('y'):
             employee.last_message = Employee.CONFIRMED_SCHEDULE
