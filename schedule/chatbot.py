@@ -119,10 +119,8 @@ def send_reject_schedule(employee):
 
 def send_confirm_reject_shift(employee, shift):
     body = f'To Confirm: \n' \
-           'You would like some to work for you\n' \
-           '{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n' \
-           'text (y) to confirm'
-
+           'You would like some to work for you\n'
+    body += f'{get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n text (y) to confirm'
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=employee.phone_number)
     employee.message_shift = shift.id
@@ -132,7 +130,7 @@ def send_confirm_reject_shift(employee, shift):
 
 def send_emp_change_request(employee, shift):
     employees = shift.job.employee_set.all()
-    for emp in employee:
+    for emp in employees:
         if emp.id != employee.id:
             send_pickup_shift_request(employee, emp, shift)
 
