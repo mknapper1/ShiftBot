@@ -78,6 +78,7 @@ def send_nice(phone_number):
     client = get_client()
     client.messages.create(body=body, from_='+16162131665', to=phone_number)
 
+
 def send_help_message(phone_number):
     body = 'Text (s) for Schedule \n' \
            'Text (r) to Request Off'

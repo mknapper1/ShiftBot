@@ -4,7 +4,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
 
-from .chatbot import send_schedule
+from .utility import send_schedule
 
 
 class Workplace(models.Model):
@@ -58,7 +58,8 @@ class WorkWeek(models.Model):
             shift.employee = Employee.objects.filter(workplace=self.workplace, job=shift.job).order_by('?').first()
             shift.save()
         for employee in self.workplace.employee_set.all():
-            send_schedule(employee.id, self.id)
+            schedule = Shift.objects.get(work_week_id=self.id, employee=employee)
+            send_schedule(employee, schedule)
 
 
 class Job(models.Model):
