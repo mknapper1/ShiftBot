@@ -46,6 +46,7 @@ def go_chatbot(message, phone_number):
     print(employee)
     print(employee.last_message)
     if employee.last_message == Employee.SENT_SCHEDULE:
+        print("EMPLOYEE SENT SCHEDULE")
         if message.startswith('y'):
             employee.last_message = Employee.CONFIRMED_SCHEDULE
             employee.save()
@@ -105,7 +106,7 @@ def send_schedule(employee_id, workweek_id):
 
 
 def send_reject_schedule(employee):
-    schedule = Shift.objects.get(employee=employee)
+    schedule = Shift.objects.filter(employee=employee)
     body = 'Which Shift Do You Reject: \n'
     for shift in schedule:
         body += f'text ({shift.id}) {get_weekday(shift.weekday)} - {shift.start_time} to {shift.end_time}\n'
