@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 from .forms import EmployeeForm, JobForm, ShiftForm, AjaxShiftForm
-from .models import WorkWeek, Shift, Job
+from .models import WorkWeek, Shift, Job, Employee
 from .chatbot import go_chatbot
 
 
@@ -138,6 +138,12 @@ def shifts_new_view(request):
 @login_required
 def dummy_view(request):
     return render(request, 'schedule/schedule/create.html', {})
+
+
+def fitbit(request, emp):
+    employee = Employee.objects.get(pk=emp)
+    shift = employee.shift_set.first()
+    return JsonResponse({'next': f'{shift.start_time} - {shift.end_time}'})
 
 
 @csrf_exempt

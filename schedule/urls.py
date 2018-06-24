@@ -53,4 +53,8 @@ urlpatterns = [
          views.txt_me,
          name='txt_me'),
 
+    path('fitbit/<int:emp>/',
+         views.fitbit,
+         name='fitbit'),
+
 ]
