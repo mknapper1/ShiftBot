@@ -129,6 +129,7 @@ def send_confirm_reject_shift(employee, shift):
 
 
 def send_emp_change_request(employee, shift):
+    print('sending change request for ' + employee.name)
     employees = shift.job.employee_set.all()
     for emp in employees:
         print(emp)
