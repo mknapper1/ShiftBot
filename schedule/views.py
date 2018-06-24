@@ -1,16 +1,26 @@
+import datetime
+
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 
 from .forms import EmployeeForm, JobForm, ShiftForm
+from .models import WorkWeek
 
 
 def dashboard(request):
-    return render(request, 'schedule/dashboard.html', {})
+    week = datetime.datetime.now().isocalendar()[1]
+    year = datetime.datetime.now().year
+    return render(request, 'schedule/dashboard.html', {'week': week, 'year': year})
 
 
-def schedule_create_view(request):
-    return render(request, 'schedule/schedule/create.html', {})
+def schedule_create_view(request, year=None, week=None):
+    work_week, created = WorkWeek.objects.get_or_create(year=year, week=week, workplace=request.user.workplace)
+    shifts = work_week.shifts.all() if not created else None
+    return render(request, 'schedule/schedule/create.html', {'week': week,
+                                                             'year': year,
+                                                             'start_datetime': work_week.get_start_datetime(),
+                                                             'shifts': shifts})
 
 
 def employees_view(request):

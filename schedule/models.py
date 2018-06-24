@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
@@ -32,10 +34,17 @@ class Workplace(models.Model):
 
 
 class WorkWeek(models.Model):
-    week_number = models.IntegerField()
+    week = models.IntegerField()
     year = models.IntegerField()
     complete = models.BooleanField(default=False)
     workplace = models.ForeignKey(Workplace, blank=True, null=True, on_delete=models.SET_NULL)
+
+    def get_start_datetime(self):
+        date = f'{self.year}-W{self.week}-0'
+        return datetime.strptime(date, "%Y-W%W-%w")
+
+    def get_next_week(self):
+        return 1 if self.week == 52 else self.week + 1
 
 
 class Job(models.Model):
@@ -75,33 +84,24 @@ class Employee(models.Model):
 
 
 class Shift(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
-    sunday = 'Sunday'
-    monday = 'Monday'
-    tuesday = 'Tuesday'
-    wednesday = 'Wednesday'
-    thursday = 'Thursday'
-    friday = 'Friday'
-    saturday = 'Saturday'
-    DAY_CHOICES = (
-        (sunday, 'Sunday'),
-        (monday, 'Monday'),
-        (tuesday, 'Tuesday'),
-        (wednesday, 'Wednesday'),
-        (thursday, 'Thursday'),
-        (friday, 'Friday'),
-        (saturday, 'Saturday'),
-    )
-    day = models.CharField(max_length=10, choices=DAY_CHOICES, default=sunday)
-    work_week = models.ForeignKey(WorkWeek, null=True, blank=True, on_delete=models.CASCADE)
+    weekday = models.IntegerField(default=0)
+    work_week = models.ForeignKey(WorkWeek, null=True, blank=True, on_delete=models.CASCADE, related_name='shifts')
     start_time = models.TimeField()
     end_time = models.TimeField()
     job = models.ForeignKey(Job, null=True, blank=True, on_delete=models.SET_NULL)
     workplace = models.ForeignKey(Workplace, null=True, blank=True, on_delete=models.SET_NULL)
     employee = models.ForeignKey(Employee, null=True, blank=True, on_delete=models.SET_NULL)
 
+    def start_datetime(self):
+        date = self.work_week.get_start_datetime() + timedelta(days=int(self.weekday))
+        return date.replace(hour=self.start_time.hour, minute=self.start_time.minute)
+
+    def end_datetime(self):
+        date = self.work_week.get_start_datetime() + timedelta(days=int(self.weekday))
+        return date.replace(hour=self.end_time.hour, minute=self.end_time.minute)
+
     def __str__(self):
-        return self.name
+        return f'{self.weekday} - {self.job}'
 
     @property
     def filled(self):

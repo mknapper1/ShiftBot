@@ -12,43 +12,66 @@
 
 {% block main %}
 
-
     <div class="row">
         <div class="col">
-            <h2>Create Week 8 Schedule</h2>
-            <h5>Feb 4 2018 - Feb 10 2018</h5>
+            <h2>Create Week {{ week }} Schedule</h2>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-12">
             <div id='calendar'></div>
         </div>
     </div>
 {% endblock main %}
 
 {% block modal %}
-    <div class="modal fade" id="shiftModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="shiftModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+    {% for job in request.user.workplace.job_set.all %}
+        <div class="modal fade" id="{{ job.slug }}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="{{ job.slug }}ModalLabel">Select a {{ job }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-check-radio">
+                            <label class="form-check-label">
+                                <input class="form-check-input" name="exampleRadios" id="exampleRadios1" value="option1"
+                                       type="radio">
+                                Radio is off
+                                <span class="form-check-sign"></span>
+                            </label>
+                        </div>
+                        <div class="form-check-radio">
+                            <label class="form-check-label">
+                                <input class="form-check-input" name="exampleRadios" id="exampleRadios2" value="option2"
+                                       checked="" type="radio">
+                                Radio is on
+                                <span class="form-check-sign"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="left-side">
+                            <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Never mind
+                            </button>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="right-side">
+                            <button type="button" class="btn btn-primary btn-link">Save</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
 {% endblock modal %}
 
 
@@ -63,31 +86,35 @@
         var current_event_id = null;
 
 
+        {% for job in request.user.workplace.job_set.all %}
+            $('#{{ job.slug }}Modal').on('shown.bs.modal', function () {
+                {#$('#{{ job.slug }}ModalLabel').html(current_event_id);#}
+            });
+        {% endfor %}
 
-        $('#shiftModal').on('shown.bs.modal', function () {
-            $('#shiftModalLabel').html(current_event_id);
-        });
+
 
 
         $(function () {
-
-            var todayDate = moment().startOf('day');
-            var YM = todayDate.format('YYYY-MM');
-            var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
-            var TODAY = todayDate.format('YYYY-MM-DD');
-            var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+            var startDate = moment(new Date("{{ start_datetime.isoformat }}"));
+            var YM = startDate.format('YYYY-MM');
+            var TODAY = startDate.format('YYYY-MM-DD');
+            var TOMORROW = startDate.clone().add(1, 'day').format('YYYY-MM-DD');
 
             $('#calendar').fullCalendar({
+                aspectRatio: 1.6,
+                defaultDate: startDate,
                 header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listWeek'
+                    left: 'title',
+                    center: '',
+                    right: 'agendaWeek,listWeek'
                 },
                 views: {
                     agendaWeek: {
                         allDaySlot: false
                     }
                 },
+                defaultView: 'agendaWeek',
                 editable: false,
                 eventLimit: true, // allow "more" link when too many events
                 navLinks: true,
@@ -98,101 +125,28 @@
                     console.log(calEvent);
 
 
-                    {#alert(calEvent.id);#}
-
-                    $('#shiftModal').modal({});
+                    $('#' + calEvent.job + 'Modal').modal({});
 
                     // change the border color just for fun
                     {#$(this).css('border-color', 'red');#}
 
                 },
                 events: [
-                    {
-                        category: 'matthew',
-                        id: '1134423',
-                        title: 'Long Event',
-                        start: YM + '-07',
-                        end: YM + '-10',
-                        backgroundColor: 'rgba(0, 0, 0, .5)',
-                        borderColor: 'yellow',
-                    },
-                    {
-                        id: 2234,
-                        title: 'Repeating Event',
-                        start: YM + '-09T16:00:00'
-                    },
-                    {
-                        id: 2342,
-                        title: 'Repeating Event',
-                        start: YM + '-16T16:00:00'
-                    },
-                    {
-                        id: 242,
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        id: 232,
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T10:30:00',
-                        end: TODAY + 'T12:30:00'
-                    },
-                    {
-                        title: 'Lunch',
-                        start: TODAY + 'T12:00:00'
-                    },
-                    {
-                        title: 'Meeting',
-                        start: TODAY + 'T14:30:00'
-                    },
-                    {
-                        title: 'Happy Hour',
-                        start: TODAY + 'T17:30:00'
-                    },
-                    {
-                        title: 'Dinner',
-                        start: TODAY + 'T20:00:00'
-                    },
-                    {
-                        title: 'Birthday Party',
-                        start: TOMORROW + 'T07:00:00'
-                    },
-                    {
-                        title: 'Click for Google',
-                        url: 'http://google.com/',
-                        start: YM + '-28'
-                    }
+                    {% for shift in shifts %}
+                        {
+                            job: '{{ shift.job.slug }}',
+                            id: {{ shift.id }},
+                            title: '{{ shift.job }}',
+                            start: '{{ shift.start_datetime.isoformat }}',
+                            end: '{{ shift.end_datetime.isoformat }}',
+                            backgroundColor: '{{ shift.job.color }}'
+                        },
+                    {% endfor %}
                 ]
             });
         });
 
-</script>
+    </script>
 
 
 {% endblock javascript %}

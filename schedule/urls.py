@@ -1,5 +1,4 @@
 from django.urls import path
-
 from . import views
 
 app_name = 'schedule'
@@ -12,6 +11,11 @@ urlpatterns = [
     path('create/',
          views.schedule_create_view,
          name='schedule_create_view'),
+
+    path('create/<int:year>/<int:week>/',
+         views.schedule_create_view,
+         name='schedule_create_view'),
+
 
     path('employees/',
          views.employees_view,
