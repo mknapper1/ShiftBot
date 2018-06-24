@@ -23,3 +23,10 @@ class ShiftForm(forms.ModelForm):
         model = Shift
         fields = ['weekday', 'work_week', 'start_time', 'end_time', 'job']
 
+
+class AjaxShiftForm(forms.Form):
+    work_week = forms.IntegerField()
+    work_day = forms.IntegerField()
+    start_time = forms.TimeField()
+    end_time = forms.TimeField()
+    job = forms.IntegerField()

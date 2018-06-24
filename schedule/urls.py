@@ -40,4 +40,9 @@ urlpatterns = [
     path('shifts/new/',
          views.shifts_new_view,
          name='shifts_new_view'),
+
+    path('ajax/create/shift/',
+         views.ajax_create_shift,
+         name='ajax_create_shift'),
+
 ]

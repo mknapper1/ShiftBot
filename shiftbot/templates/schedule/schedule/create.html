@@ -3,6 +3,8 @@
 
 {% block css %}
     <link href="{% static 'vendor/fullcalendar/css/fullcalendar.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <style>
         .fc-event {
             cursor: pointer;
@@ -12,9 +14,14 @@
 
 {% block main %}
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col">
-            <h2>Create Week {{ week }} Schedule</h2>
+            <span class="h2">Create Week {{ week }} Schedule</span>
+            <span class="float-right mt-2">
+                <button id="save_btn" data-toggle="modal" data-target="#AddShiftEventModal"
+                        class="btn btn-sm btn-primary">ADD SHIFT</button>
+                <button id="save_btn" class="btn btn-sm btn-primary">SAVE SCHEDULE</button>
+            </span>
         </div>
     </div>
 
@@ -27,6 +34,84 @@
 {% endblock main %}
 
 {% block modal %}
+
+    <div class="modal fade" id="AddShiftEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">Add A Shift</h5>
+                    <button type="button" class="close" id="AddShiftEventModalCloseBtn" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="." method="POST">
+                        <div id="div_id_work_day" class="form-group">
+                            <label for="id_work_day" class="col-form-label ">
+                                Work Day
+                            </label>
+                            <div class="">
+                                <select name="work_day" class="select form-control" id="id_work_day">
+                                    <option value="0" selected="">Sunday</option>
+                                    <option value="1">Monday</option>
+                                    <option value="2">Tuesday</option>
+                                    <option value="3">Wednesday</option>
+                                    <option value="4">Thursday</option>
+                                    <option value="5">Friday</option>
+                                    <option value="6">Saturday</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="div_id_start_time" class="form-group">
+                            <label for="id_start_time" class="col-form-label requiredField">
+                                Start time
+                                <span class="asteriskField">*</span>
+                            </label>
+                            <div class="">
+                                <input name="start_time" class="timeinput form-control" required="" id="id_start_time"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div id="div_id_end_time" class="form-group">
+                            <label for="id_end_time" class="col-form-label requiredField">
+                                End time
+                                <span class="asteriskField">*</span>
+                            </label>
+                            <div class="">
+                                <input name="end_time" class="timeinput form-control" required="" id="id_end_time"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div id="div_id_job" class="form-group"><label for="id_job" class="col-form-label ">
+                            Job
+                        </label>
+                            <div class="">
+                                <select name="job" class="select form-control" id="id_add_shift_job">
+                                    <option value="" selected="">---------</option>
+                                    <option value="1">programmer</option>
+                                    <option value="2">coder</option>
+                                    <option value="3">Software Engineer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="left-side">
+                        <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Never mind
+                        </button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="right-side">
+                        <button type="button" id="AddEventBtn" class="btn btn-primary btn-link">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% for job in request.user.workplace.job_set.all %}
         <div class="modal fade" id="{{ job.slug }}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -41,22 +126,17 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="form-check-radio">
-                            <label class="form-check-label">
-                                <input class="form-check-input" name="exampleRadios" id="exampleRadios1" value="option1"
-                                       type="radio">
-                                Radio is off
-                                <span class="form-check-sign"></span>
-                            </label>
-                        </div>
-                        <div class="form-check-radio">
-                            <label class="form-check-label">
-                                <input class="form-check-input" name="exampleRadios" id="exampleRadios2" value="option2"
-                                       checked="" type="radio">
-                                Radio is on
-                                <span class="form-check-sign"></span>
-                            </label>
-                        </div>
+                        {% for employee in job.employee_set.all %}
+                            <div class="form-check-radio">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" name="exampleRadios" id="exampleRadios1"
+                                           value="emp-{{ employee.id }}"
+                                           type="radio">
+                                    {{ employee }}
+                                    <span class="form-check-sign"></span>
+                                </label>
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="modal-footer">
                         <div class="left-side">
@@ -80,6 +160,9 @@
 
     <script src="{% static 'vendor/fullcalendar/js/fullcalendar.min.js' %}"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
     <script>
 
         var current_event_element = null;
@@ -93,21 +176,20 @@
         {% endfor %}
 
 
-
-
         $(function () {
             var startDate = moment(new Date("{{ start_datetime.isoformat }}"));
             var YM = startDate.format('YYYY-MM');
             var TODAY = startDate.format('YYYY-MM-DD');
             var TOMORROW = startDate.clone().add(1, 'day').format('YYYY-MM-DD');
 
-            $('#calendar').fullCalendar({
+            var fc = $('#calendar').fullCalendar({
                 aspectRatio: 1.6,
                 defaultDate: startDate,
                 header: {
                     left: 'title',
                     center: '',
-                    right: 'agendaWeek,listWeek'
+                    {#right: 'agendaWeek,listWeek'#}
+                    right: ''
                 },
                 views: {
                     agendaWeek: {
@@ -139,12 +221,66 @@
                             title: '{{ shift.job }}',
                             start: '{{ shift.start_datetime.isoformat }}',
                             end: '{{ shift.end_datetime.isoformat }}',
-                            backgroundColor: '{{ shift.job.color }}'
+                            backgroundColor: '{{ shift.job.color }}',
+                            assigned: '{{ shift.employee.id }}'
                         },
                     {% endfor %}
                 ]
             });
+
+            {#var end_time_pickr = $("#id_end_time").flatpickr()#}
+
+
+            $('#save_btn').on('click', function () {
+                console.log(fc.fullCalendar('clientEvents'));
+            });
+
+            $('#AddEventBtn').on('click', function () {
+                var work_week = '{{ work_week.id }}';
+                var work_day = $('#id_work_day').val();
+                var start_time = $('#id_start_time').val();
+                var end_time = $('#id_end_time').val();
+                var job = $('#id_add_shift_job').val();
+
+
+                {#alert(work_week + ' | ' + work_day + ' | ' + start_time + ' | ' + end_time + ' | ' + job);#}
+
+                  var formData = {
+                       'work_week': work_week,
+                        'work_day': work_day,
+                        'start_time': start_time,
+                        'end_time': end_time,
+                        'job': job,
+                        'csrf_token': '{{ csrf_token }}'
+                  };
+
+                  $.post('{% url "schedule:ajax_create_shift" %}', formData).done(function (data) {
+                        alert(data);
+                    });
+
+
+                {#$.ajax({#}
+                {##}
+                {#    url: "",#}
+                {#    type: 'GET',#}
+                {#    data: {#}
+                {##}
+                {#    },#}
+                {#    success: function (data) {#}
+                {#        alert('what');#}
+                {#        alert('Data: ' + data);#}
+                {#    },#}
+                {#    error: function (request, error) {#}
+                {#        alert("Request: " + JSON.stringify(request));#}
+                {#    }#}
+
+                $('#AddShiftEventModalCloseBtn').click();
+
+            })
+
+
         });
+
 
     </script>
 

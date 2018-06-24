@@ -1,10 +1,12 @@
 import datetime
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
-from .forms import EmployeeForm, JobForm, ShiftForm
+from .forms import EmployeeForm, JobForm, ShiftForm, AjaxShiftForm
 from .models import WorkWeek
 
 
@@ -19,8 +21,19 @@ def schedule_create_view(request, year=None, week=None):
     shifts = work_week.shifts.all() if not created else None
     return render(request, 'schedule/schedule/create.html', {'week': week,
                                                              'year': year,
+                                                             'work_week': work_week,
                                                              'start_datetime': work_week.get_start_datetime(),
                                                              'shifts': shifts})
+
+
+@csrf_exempt
+def ajax_create_shift(request):
+    if request.method == 'POST':
+        form = AjaxShiftForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_date
+            return JsonResponse({'shift_id': '123'})
+    return JsonResponse({'error': 'sorry'})
 
 
 def employees_view(request):
